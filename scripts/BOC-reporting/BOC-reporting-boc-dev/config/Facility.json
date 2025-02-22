@@ -1,0 +1,28 @@
+{
+    "data_source": {
+      "type": "sql"
+    },
+    "mapping_file": "../data/all_mappings.xlsx",
+    "mappings": [
+    {
+        "sheet_name": "deal_type",
+        "keys": {
+            "main": "AP code",
+            "mapping": "deal_type"
+    },
+    "values": {
+    "Guarantee": "Guarantee"
+    }
+     },
+     {
+       "sheet_name": "RMD",
+       "keys": {
+         "main": "customer_nr",
+         "mapping": "customer_nr"
+       },
+       "values": {
+         "本期最终风险承担国家 Ultimate risk-bearing countries": "Ultimate risk-bearing countries-RMD"
+       }
+     }
+   ]
+}

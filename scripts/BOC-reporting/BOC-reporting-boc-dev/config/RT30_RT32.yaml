@@ -1,0 +1,100 @@
+data_source:
+  type: "sql"  # Options: "excel" or "sql"
+
+mapping_file: "../data/all_mappings.xlsx"  # Full Path to the Excel file containing all mapping sheets.
+
+mappings:
+  # Mapping 1: ALE and 731.1分类
+  - sheet_name: "731.1分类"  # Sheet name in the mapping Excel file
+    keys:  
+      main: rv_coa
+      mapping: OUT_RV_COA 
+    values:  # rename value columns value_in_map : value_in_output 
+      ALE: ALE
+      A分类: A分类
+      L分类: L分类
+      OB-A分类: OB-A分类
+      OB-L分类: OB-L分类
+
+  # Mapping 2: 731 CCY
+  - sheet_name: "731 CCY"
+    keys:
+      main: rv_currency_sub_group
+      mapping: rv_currency_sub_group
+    values:
+      731 CCY: 731 CCY
+
+
+  # Mapping 3a: Vis-à-vis counterparty sector
+  # rv_cpty_type
+  - sheet_name: "EFS企业类型"
+    keys:
+      main: rv_cpty_type
+      mapping: EFS企业类型
+    values:
+      731: 731a
+ 
+  
+  # Mapping 3b: Vis-à-vis counterparty sector
+  # rv_rel_party_type
+  - sheet_name: "EFS企业类型"
+    keys:
+      main: rv_rel_party_type
+      mapping: EFS企业类型
+    values:
+      731: 731b
+
+  # Mapping 4: FDA table when ide_linkage_type = 10
+  - sheet_name: "FDA table"
+    keys:
+      main: ['ide_linkage_type', 'rv_coa']
+      mapping: ['ide_linkage_type', 'rv_coa']
+    values:
+      fda_table: fda_table_10
+
+
+  # Mapping 4b: FDA table when others
+  - sheet_name: "FDA table"
+    keys:
+      main: 'ide_linkage_type'
+      mapping: 'ide_linkage_type'
+    values:
+      fda_table: fda_table_others
+
+# post_mappings:
+#   # Post mapping 1: 利息
+#   - sheet_name: "应收应付利息1"
+#     keys:
+#       main: deal_type_derived
+#       mapping: 本金
+#     values:
+#       利息: 利息
+
+#   # Post mapping 2: 估值
+#   - sheet_name: "应收应付利息2"
+#     keys:
+#       main: deal_type_derived
+#       mapping: 表外敞口
+#     values:
+#       MTM_POSITIVE: MTM_POSITIVE
+#       MTM_NEGATIVE: MTM_NEGATIVE
+
+#   # Post mapping 3a: Risk in: ide_linkage_ref
+#   - sheet_name: "RMD"
+#     keys:
+#       main: ide_linkage_ref
+#       mapping: ide_linkage_ref
+#     values:
+#       本期最终风险承担国家 Ultimate risk-bearing countries: RMD_country_ide
+
+#   # Post mapping 3b: Risk in: customer_nr
+#   - sheet_name: "RMD"
+#     keys:
+#       main: customer_nr
+#       mapping: customer_nr
+#     values:
+#       本期最终风险承担国家 Ultimate risk-bearing countries: RMD_country_customer
+
+
+# output:
+#   file: "../output/output.xlsx"  # Path to save the final report

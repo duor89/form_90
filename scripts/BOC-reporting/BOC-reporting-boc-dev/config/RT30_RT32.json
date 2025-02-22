@@ -1,0 +1,73 @@
+{
+    "data_source": {
+        "type": "sql"
+    },
+    "mapping_file": "../data/all_mappings.xlsx",
+    "mappings": [
+    {
+
+        "sheet_name": "731.1分类",
+        "keys": {
+            "main": "rv_coa",
+            "mapping": "OUT_RV_COA"
+    },
+        "values": {
+            "ALE": "ALE",
+            "A分类": "A分类",
+            "L分类": "L分类",
+            "OB-A分类": "OB-A分类",
+            "OB-L分类": "OB-L分类"
+       }
+    },
+    {
+        "sheet_name": "731 CCY",
+        "keys": {
+            "main": "rv_currency_sub_group",
+            "mapping": "rv_currency_sub_group"
+    },
+        "values": {
+            "731 CCY": "731 CCY"
+        }
+    },
+    {
+        "sheet_name": "EFS企业类型",
+        "keys": {
+            "main": "rv_cpty_type",
+            "mapping": "EFS企业类型"
+        },
+        "values": {
+            "731": "731a"
+        }
+    },
+    {
+        "sheet_name": "EFS企业类型",
+        "keys": {
+            "main": "rv_rel_party_type",
+            "mapping": "EFS企业类型"
+        },
+        "values": {
+            "731": "731b"
+        }
+    },
+    {
+        "sheet_name": "FDA table",
+        "keys": {
+            "main": ["ide_linkage_type", "rv_coa"],
+            "mapping": ["ide_linkage_type", "rv_coa"]
+        },
+        "values": {
+            "fda_table": "fda_table_10"
+        }
+    },
+    {
+        "sheet_name": "FDA table",
+        "keys": {
+            "main": "ide_linkage_type",
+            "mapping": "ide_linkage_type"
+        },
+        "values": {
+            "fda_table": "fda_table_others"
+        }
+    }
+    ]
+}

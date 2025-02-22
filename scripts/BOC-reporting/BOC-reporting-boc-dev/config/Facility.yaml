@@ -1,0 +1,25 @@
+data_source:
+  type: "sql"  # Options: "excel" or "sql"
+
+mapping_file: "../data/all_mappings.xlsx"  # Full Path to the Excel file containing all mapping sheets.
+
+mappings:
+  # Mapping 1: 
+  - sheet_name: "deal_type"
+    keys:
+      main: AP code
+      mapping: deal_type
+    values:  
+      Guarantee: Guarantee
+
+  # Mapping 2: 
+  - sheet_name: "RMD"  
+    keys:  
+      main: customer_nr
+      mapping: customer_nr 
+    values:  
+      本期最终风险承担国家 Ultimate risk-bearing countries:  Ultimate risk-bearing countries-RMD
+
+
+# output:
+#   file: "../output/output.xlsx"  # Path to save the final report

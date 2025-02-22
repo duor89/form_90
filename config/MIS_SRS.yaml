@@ -1,0 +1,48 @@
+data_source:
+  type: "sql"  # Options: "excel" or "sql"
+
+mapping_file: "../data/all_mappings.xlsx"  # Full Path to the Excel file containing all mapping sheets.
+
+mappings:
+  # Mapping 1: 核算码Mapping1
+  - sheet_name: "核算码Mapping1"  # Sheet name in the mapping Excel file
+    keys:  
+      main: AP_CODE
+      mapping: AP Code 
+    values:  # rename value columns value_in_map : value_in_output 
+      FDA COA: rv_coa
+
+  # Mapping 2: Gurantees
+  - sheet_name: "deal_type" 
+    keys:  
+      main: AP_CODE
+      mapping: deal_type 
+    values:  
+      Guarantee: G
+
+  # Mapping 3: ALE
+  - sheet_name: "731.1分类"  
+    keys:  
+      main: rv_coa
+      mapping: OUT_RV_COA 
+    values:  
+      ALE: ALE
+
+  # Mapping 4.1: 应收应付利息2
+  - sheet_name: "应收应付利息2"  
+    keys:  
+      main: AP_CODE
+      mapping: MTM_POSITIVE 
+    values: 
+      MTM_POSITIVE: MTM_POSITIVE
+
+  # Mapping 4.2: 应收应付利息2
+  - sheet_name: "应收应付利息2"  #
+    keys:  
+      main: AP_CODE
+      mapping: MTM_NEGATIVE 
+    values:  
+      MTM_NEGATIVE: MTM_NEGATIVE
+
+# output:
+#   file: "../output/output.xlsx"  # Path to save the final report

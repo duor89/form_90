@@ -1,0 +1,30 @@
+{
+    "data_source": {
+      "type": "sql"
+    },
+    "mapping_file": "../data/Ultimate risk-bearing countries.xlsx",
+    "mappings": [
+      {
+        "sheet_name": "This period",
+        "keys": {
+          "main": "ide_linkage_ref",
+          "mapping": "deal_id"
+        },
+        "values": {
+          "最终风险承担国家": "本期最终风险承担国家 Ultimate risk-bearing countries",
+          "最终风险承担方性质": "本期最终风险承担方性质Description"
+        }
+      },
+      {
+        "sheet_name": "Last RMD",
+        "keys": {
+          "main": "ide_linkage_ref",
+          "mapping": "ide_linkage_ref"
+        },
+        "values": {
+          "本期最终风险承担国家 Ultimate risk-bearing countries": "Last ultimate risk-bearing countries",
+          "本期最终风险承担方性质Description": "Last description"
+        }
+      }
+    ]
+  }

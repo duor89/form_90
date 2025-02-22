@@ -1,0 +1,26 @@
+data_source:
+  type: "sql"  # Options: "excel" or "sql"
+
+mapping_file: "../data/Ultimate risk-bearing countries.xlsx"  # Full Path to the Excel file containing all mapping sheets.
+
+mappings:
+  # Mapping 1: 本期最终风险承担国家 Ultimate risk-bearing countries
+  - sheet_name: "This period"  # Sheet name in the mapping Excel file
+    keys:  
+      main: ide_linkage_ref
+      mapping: deal_id 
+    values:  # rename value columns value_in_map : value_in_output 
+      最终风险承担国家: 本期最终风险承担国家 Ultimate risk-bearing countries
+      最终风险承担方性质: 本期最终风险承担方性质Description
+
+  # mapping 2: 上期最终风险承担国家 Ultimate risk-bearing countries
+  - sheet_name: "Last RMD"  # Sheet name in the mapping Excel file
+    keys:  
+      main: ide_linkage_ref
+      mapping: ide_linkage_ref 
+    values:  # rename value columns value_in_map : value_in_output 
+      本期最终风险承担国家 Ultimate risk-bearing countries: Last ultimate risk-bearing countries
+      本期最终风险承担方性质Description: Last description
+
+# output:
+#   file: "../output/output.xlsx"  # Path to save the final report
